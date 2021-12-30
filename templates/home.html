@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <h1>Newspaper app</h1>
+    <p>A Newspaper website build in Django</p>
+    <a href="{% url 'article_list' %}" class="btn btn-primary">View All Articles</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+{% endblock content %}
